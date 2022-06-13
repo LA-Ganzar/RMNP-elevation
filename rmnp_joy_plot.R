@@ -24,7 +24,7 @@ transects %>%
   summarize(mean = mean(elevation))
 
 # Plot
-rmnp_joy <- ggplot(transects,
+(rmnp_joy <- ggplot(transects,
                    aes(x = lon, y = lat, group = lat, height = elevation)) +
   geom_density_ridges(stat = "identity",
                       scale = 40,
@@ -43,8 +43,8 @@ rmnp_joy <- ggplot(transects,
         axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
         axis.title.x=element_text(colour="white")) +
-  labs(x = "Rocky Mountain National Park")
-rmnp_joy
+  labs(x = "Rocky Mountain National Park"))
+ggsave("/Users/leighannganzar/Desktop/Post-Doc/RMNP/RMNP-elevation/black_plot.jpg", dpi = 300)
 
 (rmnp_joy_white <- ggplot(transects,
                    aes(x = lon, y = lat, group = lat, height = elevation)) +
@@ -66,9 +66,5 @@ rmnp_joy
         axis.ticks.y = element_blank(),
         axis.title.x=element_text(colour="black")) +
   labs(x = "Rocky Mountain National Park"))
-
-
-# Add labels
-rmnp_joy +
-  annotate("text", x = -105.4936, y = 40.1856, label = "Text No. 1")
+ggsave("/Users/leighannganzar/Desktop/Post-Doc/RMNP/RMNP-elevation/white_plot.jpg", dpi = 300)
 
